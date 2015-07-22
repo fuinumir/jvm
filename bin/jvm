@@ -1,0 +1,26 @@
+#!/bin/bash
+
+print_usage() {
+    echo "Usage: jvm <command> [version]"
+    echo   
+    echo "commands:"
+    echo "   install   or i    [version]"
+    echo "   uninstall or rm   <version>"
+    echo "   list      or ls"
+    echo "   use       or u    [version]"
+    echo "   help      or h"
+    echo   
+    echo "version    :  where optional, defaults to latest stable if not provided"
+    exit 1;
+}
+
+parse_arguments() {
+    [[ $# > 0 && $# < 3 ]] || print_usage 
+    command=$1
+    version=$2
+}
+
+parse_arguments "$@"
+echo $command
+echo $version
+
